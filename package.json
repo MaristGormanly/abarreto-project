@@ -1,0 +1,22 @@
+{
+  "name": "abarreto-project",
+  "version": "1.0.0",
+  "description": "Spring 18 Class project",
+  "main": "oregonTrail.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaristGormanly/abarreto-project.git"
+  },
+  "author": "Alemy Barreto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaristGormanly/abarreto-project/issues"
+  },
+  "homepage": "https://github.com/MaristGormanly/abarreto-project#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
