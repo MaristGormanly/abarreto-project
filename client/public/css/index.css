@@ -2,7 +2,7 @@ h1{
   font-family: "Lucida Console", Lucida, monospace;
   color: #FFEBCD;
   text-align: center;
-  text-shadow: 2px 2px 8px
+  text-shadow: 2px 2px 8px;
   font-size: 70px;
 }
 
@@ -12,6 +12,7 @@ h1{
   font-size: 50px;
 
 }
+
 @keyframes blinkingText{
   0%{   color: #FFEBCD;}
   29%{  color: transparent;}
@@ -37,5 +38,6 @@ h1{
   width:100%;
   text-align:center;
   font-size:18px;
-  margin-top:10px;
+  margin-top:15%;
+  color:#ffffff;
 }

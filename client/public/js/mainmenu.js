@@ -9,7 +9,7 @@ document.addEventListener('keydown', function(event) {
 });
 
 function start(){
-  window.location = "/trail";
+  window.location = "/setup";
 }
 
 function learn(){

@@ -30,17 +30,27 @@ app.get('/trail', function(request, response) {
 const gameController = require("./controllers/gameController.js");
 const setupController = require("./controllers/setupController.js");
 
-//
-// app.route('/api/setup/player/')
-//     .get(gameController.getAllPlayerNames)
-//     .post(gameController.savePlayerName);
-// app.route('/api/setup/player/:id')
-//     .get(setupController.getPlayerName)
-//     .patch(setupController.changePlayerName)
-//     .delete(setupcontroller.deletePlayerName);
 
+app.route('/api/game/data/')
+    .get(gameController.getGameData);
 
-app.route('api/setup/screen/:id')
-  .get(setupController.getSetupScreen);
+app.route('/api/setup/wagonLeader/:name1')
+    .post(gameController.setLeader);
+
+app.route('/api/setup/member/:name2/:name3/:name4/:name5')
+    .post(gameController.setMembers);
+
+app.route('/api/setup/month/:month')
+    .post(gameController.setMonth);
+
+app.route('/api/setup/profession/:profession')
+    .post(gameController.setProfession);
+
+app.route('/api/setup/screen/:id')
+.get(setupController.getSetupScreen);
+
+app.route('/api/game/updateGame')
+    .get(gameController.updateGameData);
+
 
 app.listen(port, () => console.log('Example app listening on port 1337!'))

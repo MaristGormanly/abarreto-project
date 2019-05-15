@@ -39,62 +39,53 @@ gameStats = gameData.getData();
 
 exports.setupScreens = [];
 
-var screen1 = "<p>Choose your life:</p>"
-    + "<ol id=\"professionQuestions\" >"
-    + "<li id=\"bankerChoice\" >Be a banker from Boston</li>"
-    + "<li id=\"carpenterChoice\" >Be a carpenter from Ohio</li>"
-    + "<li id=\"farmerChoice\" >Be a farmer from Illinois</li>"
-    + "<li id=\"differencesChoice\" >Find out the differences</li>"
-    + "</ol>"
-    + "<p id=\"selectedOption\" >What is your bankerChoice?</p>"
-    + "<form>"
-    + "<input type = \"text\" id = \"selection\">"
-    + "<input type = \"button\" id = \"submit\" value = \"Submit\"  />"
-    + "</form>";
+var screen1 = 
+        "<h3>Choose your Profession</h3>"
+         + "<ol id=\"setupQuestions1\" >"
+         + "<li id=\"bankerMenuItem\" onclick='saveProfession(\"Banker\")'>Be a banker from Boston</li>"
+         + "<li id=\"carpenterMenuItem\"  onclick='saveProfession(\"Carpenter\")'>Be a carpenter from Ohio</li>"
+         + "<li id=\"farmerMenuItem\" onclick='saveProfession(\"Farmer\")'>Be a farmer from Illinois</li>"
+         + "</ol>";
 
-var screen2 = "<p>What is your wagon leaders name?</p>"
-    + "<form>"
-    + "<input type = \"text\" id = \"selection\">"
-    + "<input type = \"button\" id = \"submit\" value = \"Submit\" />"
-    + "</form>";
+var screen2 = "<h3>What is the first name of the wagon leader?</h3>"
+         + " <input type=\"text\" id=\"player0\" value=\"\"/>"
+         + "<input type=\"button\" class=\"button-1\" id=\"page1sub\" value=\"next\" onclick = saveWagonLeader() />";
 
-var screen3 = "<p>Enter the rest of your parties names' names</p>"
-    + "<form>"
-    + "<input type = \"text\" id = \"member1\"><br />"
-    + "<input type = \"text\" id = \"member2\"><br />"
-    + "<input type = \"text\" id = \"member3\"><br />"
-    + "<input type = \"text\" id = \"member4\"><br />"
-    + "<input type = \"button\" id = \"submit\" value = \"Submit\" />"
-    + "</form>";
+var screen3 = "<h3>What are the first names of the other members of your party?</h3>"
+         + "<p>Player Name: <input id=\"player1\" /></p>"
+                  + "<p>Player Name: <input id=\"player2\" /></p> "
+                  + "<p>Player Name: <input id=\"player3\" /></p>"
+                  + "<p>Player Name: <input id=\"player4\" /></p \>"
+                  + "<input type=\"button\" class=\"button-1\" id=\"page2sub\" value=\"Next\" onclick = saveWagonMembers() />";
 
-var screen4 = "<p>Select the month you would like to start in</p>"
-    + "<ol id=\"months\">"
-    + "<li id=\"march\">March</li>"
-    + "<li id=\"april\">April</li>"
-    + "<li id=\"may\">May</li>"
-    + "<li id=\"june\">June</li>"
-    + "</ol>"
-    + "<form>"
-    + "<input type = \"text\" id = \"monthSelection\">"
-    + "<input type = \"button\" id = \"submit\" value = \"Submit\" />"
-    + "</form>";
+ var screen4 = "<h3>Choose your start month:.</h3>"
+                  + "<ol id=\"setupQuestions4\" >"
+                  + "<li onclick=\"setMonth('March')\" id=\"marchOption\">March</li>"
+                  + "<li onclick=\"setMonth('April')\" id=\"aprilOption\">April</li>"
+                  + "<li onclick=\"setMonth('May')\" id=\"mayOption\">May</li>"
+                  + "<li onclick=\"setMonth('June')\" id=\"juneOption\">June</li>"
+                  + "<li onclick=\"setMonth('July')\" id=\"julyOption\">July</li>"
+                  + "</ol>"
+                  + "<div id=\"selectedOption\">What is your choice?</div>";
 
-var screen5 = "<p>Congratulations! You are ready to travel the trail!</p>"
-    + "<p>Your selections:</p>"
-    + "<br/ >"
-    + "<p>Profession: " + gameStats.playerProfession+ "</p><br />"
-    + "<p>Starting money: " + gameStats.playerMoney  + "</p><br />"
-    + "<p>Caravan leader: " + gameStats.playerNames[0] + "</p><br />"
-    + "<p>Member 1: " + gameStats.playerNames[1] + "</p><br />"
-    + "<p>Member 2: " + gameStats.playerNames[2] + "</p><br />"
-    + "<p>Member 3: " + gameStats.playerNames[3] + "</p><br />"
-    + "<p>Member 4: " + gameStats.playerNames[4] + "</p><br />"
-    + "<p>Start month: " + gameStats.startMonth + "</p><br />"
+var screen5 = "<h3>Congratulations! You are ready to start the mission</h3>"
+         + "<p>Here are settings you selected for the game</p>"
+         + "<div id=\"returnData\">"
+         + "<span id=\"rPlayer1Name\"></span><br />"
+         + "<span id=\"rPlayer2Name\"></span><br />"
+         + "<span id=\"rPlayer3Name\"></span><br />"
+         + "<span id=\"rPlayer4Name\"></span><br />"
+         + "<span id=\"rPlayer5Name\"></span><br />"
+         + "<span id=\"rProfession\"></span><br />"
+         + "<span id=\"rMoney\"></span><br />"
+         + "<span id=\"rMonth\"></span><br />"
+         + "<h2 id=\"pressSpace\">Press the space to go to trail.</h2>"
+         + "</div>";
 
 exports.saveStartMonth = function(req, res) {
   gameController.getData().startMonth = req.body.month;
   res.setHeader('Content-Type','text/plain');
-  res.send(gameController.getData(startMonth);
+  res.send(gameController.getData(startMonth));
 }
 
 exports.setupScreens.push(screen1);
